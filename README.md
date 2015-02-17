@@ -27,5 +27,5 @@ We'll want some basic CRUD routes for our app:
 #### /api/todos/:id
 * **PUT** Modify an existing todo
 
-#### GET /api/profile
+#### /api/profile
 * **GET** Get the current user's profile
