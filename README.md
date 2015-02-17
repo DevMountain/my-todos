@@ -84,3 +84,6 @@ $httpProvider.interceptors.push(function($location) {
 	}
 });
 ```
+
+* Also, tackle making the User Profile page editable, so a user can edit his/her information.
+* How could you make the navigation links customize themselves based on if the user is logged in or not? For example, instead of saying "Profile" it could say "Log in" if the user isn't currently logged in. 
