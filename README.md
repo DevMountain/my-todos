@@ -10,13 +10,13 @@ Clone the project, and check out the dummy data that populates the bare bones An
 Create the following models:
 
 #### User
-Our app will be a simple todo list for an authenticated user. We're going to practice authenticating with passport-local. We'll need to have a User model that represents a single user in our app. This model will need fields like email, password, and other fields that make this user unique.
+Our app will be a simple todo list for an authenticated user. We'll need to have a User model that represents a single user in our app. This model will need fields like email, password, and any other fields that could make our users unique.
 
 * Use a `.pre('save'` option to encrypt user passwords prior to saving using bcrypt.
 * Create a `comparePassword` schema method that will allow for easy comparison of user-supplied password attempts.
 
 #### Todo
-This represents a single todo item. It should have some sort of title or description as well as a status. You might also want to add in some timestamp fields for tracking *when* it was completed.
+This represents a single todo item. It should have some sort of title or description as well as a status. You could also want to add in some timestamp fields for tracking *when* it was completed. Also, make sure the schema includes a reference to the `User` model. We *could* embed todos as a field in `User`, but then it makes the API for getting todos, PUTting todos all linked to the user. Separating the two make sense in the context of what we want to do. Todos are not just a subfield or property of `User`, they are a model/collection all their own, so let's treat them as such.
 
 ### Step 2: Create Auth logic
 Because no one can really get todo items without a user context (we don't want a global todo list), we need to write the auth logic. We could do this a few different ways, but let's use Passport.
@@ -45,14 +45,18 @@ Let's create the server-side code that will power our todo app.
 
 We'll want some basic CRUD routes for our app:
 
-***Note: make sure the user is authenticated when you write these endpoints.**
+**Note: make sure the user is authenticated when you write these endpoints. You might write an `isAuthed` middleware function to make this easier.**
 
 #### /api/todos
-* **GET** Retrieve a list of todos
-* **POST** Add a new todo
+* **GET** Retrieve a list of todos for the current user
+* **POST** Add a new todo for the current user
 
 #### /api/todos/:id
-* **PUT** Modify an existing todo
+* **PUT** Modify a todo item
 
 #### /api/profile
 * **GET** Get the current user's profile
+
+Test all your endpoints with Postman thoroughly before moving on to the next step.
+
+### Step 3: 
