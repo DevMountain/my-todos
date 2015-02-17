@@ -1,0 +1,27 @@
+<section id="profile">
+	<div class="container">
+		<div class="text-center">
+			<h1>CONNECT:</h1>
+			<hr class="star-primary">
+		</div>
+		<div class="row">
+			<div class="col-sm-6 text-right"><strong>Email:</strong></div>
+			<div class="col-sm-6 text-left"><input type="text" ng-model="email" /></div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 text-right"><strong>Password:</strong></div>
+			<div class="col-sm-6 text-left"><input type="password" ng-model="password" /></div>
+		</div>
+		<div class="row text-center" ng-if="state == 'register'">
+			<button class="btn btn-primary btn-xs" ng-click="clickRegister()">Register</button>
+			<div>Need to <a ng-click="changeState('login')">login instead?</a></div>
+		</div>
+		<div class="row text-center" ng-if="state == 'login'">
+			<button class="btn btn-primary btn-xs" ng-click="clickLogin()">Login</button>
+			<div>Need to <a ng-click="changeState('register')">register instead?</a></div>
+		</div>
+		<div class="row bg-warning" ng-if="loginError">
+			Login failed.
+		</div>
+	</div>
+</section>
