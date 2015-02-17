@@ -59,4 +59,12 @@ We'll want some basic CRUD routes for our app:
 
 Test all your endpoints with Postman thoroughly before moving on to the next step.
 
-### Step 3: 
+### Step 3: Bring it all together
+
+With our API functioning, we just need to connect our front end to our back end.
+
+#### Complete the services.
+Right now, the todo and profile services are just serving dummy data. Make sure each service call is pointing to the corresponding API endpoint.
+
+#### Wire up the controllers.
+Have each controller, where applicable, call the Services so that the data being fetched, updated, and added all work as expected.
