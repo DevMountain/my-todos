@@ -40,7 +40,7 @@ passport.use(new LocalStrategy({
 * Create an `/api/auth` endpoint that will simply use your local passport implementation. Have it return a 200 if it succeeds.
 * Create an `/api/register` endpoint that saves a new user identified by email and password into the db. Make sure you don't duplicate users.
 
-### Step 2: Create API
+### Step 2: Create the API
 Let's create the server-side code that will power our todo app. 
 
 We'll want some basic CRUD routes for our app:
