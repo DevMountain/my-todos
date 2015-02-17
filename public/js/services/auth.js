@@ -10,6 +10,10 @@ angular.module('MyTodos').service('AuthService', function($q, $http) {
 			}
 		}).then(function(response) {
 			deferred.resolve(response.data);
+		}).catch(function(response) {
+			if (response.status === 400 || response.status === 401) {
+				deferred.reject(response);
+			}
 		});
 		return deferred.promise;
 	};
@@ -25,8 +29,8 @@ angular.module('MyTodos').service('AuthService', function($q, $http) {
 		}).then(function(response) {
 			deferred.resolve(response.data);
 		}).catch(function(response) {
-			if (response.status === 400) {
-				deferred.reject(400);
+			if (response.status === 400 || response.status === 401) {
+				deferred.reject(response);
 			}
 		});
 		return deferred.promise;
