@@ -21,11 +21,11 @@ Let's create the server-side code that will power our todo app.
 We'll want some basic CRUD routes for our app:
 
 #### /api/todos
-**GET** Retrieve a list of todos
-**POST** Add a new todo
+* **GET** Retrieve a list of todos
+* **POST** Add a new todo
 
 #### /api/todos/:id
-**PUT** Modify an existing todo
+* **PUT** Modify an existing todo
 
 #### GET /api/profile
-**GET** Get the current user's profile
+* **GET** Get the current user's profile
