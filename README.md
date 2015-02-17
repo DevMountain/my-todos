@@ -18,15 +18,14 @@ This represents a single todo item. It should have some sort of title or descrip
 ### Step 2: Create API
 Let's create the server-side code that will power our todo app. 
 
-#### Create REST routes
 We'll want some basic CRUD routes for our app:
 
-##### /api/todos
+#### /api/todos
 **GET** Retrieve a list of todos
 **POST** Add a new todo
 
-##### /api/todos/:id
+#### /api/todos/:id
 **PUT** Modify an existing todo
 
-##### GET /api/profile
+#### GET /api/profile
 **GET** Get the current user's profile
