@@ -1,0 +1,16 @@
+<section id="todos">
+	<div class="container">
+		<div class="text-center">
+			<h1>TODAY'S TODOS:</h1>
+			<hr class="star-primary">
+		</div>
+		<div class="row text-center">
+			<div class="col-md-5 text-left"></div>
+			<div class="col-md-5 text-left">
+				<ul class="list-unstyled">
+					<li class="todo" ng-repeat="todo in todos"><input type="checkbox" ng-model="todo.completed" ng-click="saveTodo(todo)" /> {{todo.title}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
