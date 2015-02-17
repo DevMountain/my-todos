@@ -68,3 +68,19 @@ Right now, the todo and profile services are just serving dummy data. Make sure 
 
 #### Wire up the controllers.
 Have each controller, where applicable, call the Services so that the data being fetched, updated, and added all work as expected.
+
+### Go Beyond
+Notice that our app doesn't really work very well when we're logged out. We just get 403 codes under the hood and don't do anything about it. We can use a cool feature of angular called HTTP interceptors to globally catch all "unauthed" messages and subsequently redirect the user to the login page. Something like this should do the trick:
+
+```javascript
+//in your app.js config, after the routing part
+$httpProvider.interceptors.push(function($location) {
+	return {
+		responseError: function(response) {
+			if (response.status === 403) {
+				$location.path('/auth');
+			}
+		}
+	}
+});
+```
