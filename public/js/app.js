@@ -34,6 +34,7 @@ app.config(function($routeProvider, $httpProvider) {
 				if (response.status === 403) {
 					$location.path('/auth');
 				}
+				return $q.reject(response);
 			}
 		}
 	});
