@@ -11,9 +11,13 @@ angular.module('MyTodos').controller('AuthController', function($scope, $locatio
 		AuthService.register($scope.email, $scope.password).then(function() {
 			$scope.state = 'login';
 			$scope.registerSuccessful = true;
+		}).catch(function(err) {
+			$scope.regError = true;
 		});
 	};
 	$scope.changeState = function(newState) {
+		$scope.loginError = false;
+		$scope.regError = false;
 		$scope.state = newState;
 	};
 });
