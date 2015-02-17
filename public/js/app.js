@@ -1,6 +1,6 @@
 var app = angular.module('MyTodos', ['ngRoute']);
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $httpProvider) {
 	$routeProvider
 	.when('/todos', {
 		templateUrl: '/templates/todos.html',
@@ -26,5 +26,15 @@ app.config(function($routeProvider) {
 	})
 	.otherwise({
 		redirectTo: '/todos'
+	});
+
+	$httpProvider.interceptors.push(function($q, $location) {
+		return {
+			responseError: function(response) {
+				if (response.status === 403) {
+					$location.path('/auth');
+				}
+			}
+		}
 	});
 });
